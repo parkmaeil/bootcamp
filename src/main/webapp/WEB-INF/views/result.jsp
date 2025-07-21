@@ -1,7 +1,7 @@
 <%@page contentType="text/html;charset=utf-8"%>
-<%@page import="entity.*"%>
+<%@page import="entity.*,java.util.*"%>
 <%
-   Member member=(Member)request.getAttribute("member");
+   List<Member> mList=(List<Member>)request.getAttribute("mList");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,12 +17,14 @@
      <td>나이</td>
      <td>주소</td>
   </tr>
+  <% for(Member member: mList){  %>
    <tr>
        <td><%=member.getNum()%></td>
        <td><%=member.getName()%></td>
        <td><%=member.getAge()%></td>
        <td><%=member.getAddr()%></td>
     </tr>
+   <% } %>
 </table>
 </body>
 </html>
