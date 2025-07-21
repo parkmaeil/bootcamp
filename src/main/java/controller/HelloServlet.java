@@ -1,6 +1,7 @@
 package controller;
 import utility.MyHap;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,13 +19,11 @@ public class HelloServlet extends HttpServlet {
         // 2. 처리를 한다(Model->POJO->Service)
        MyHap my=new MyHap();
        int result=my.hap(); //55
-       // 3. 응답 -> 직접(html) -> JSP
-       resp.setContentType("text/html;charset=utf-8");
-       PrintWriter out=resp.getWriter();
-       out.println("<html>");
-       out.println("<body>");
-       out.println("총합:"+result);
-       out.println("</body>");
-       out.println("</html>");
+       // 3. 응답 -> 직접(html) -> JSP(result.jsp)
+       // 객체바인딩(setAttribute)
+       req.setAttribute("result", result); // new Integer(result)
+        // forward(포워드)
+       RequestDispatcher rd=req.getRequestDispatcher("/WEB-INF/views/result.jsp");
+       rd.forward(req, resp);
     }
 }
