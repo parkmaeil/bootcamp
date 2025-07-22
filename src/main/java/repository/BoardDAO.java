@@ -18,6 +18,7 @@ public class BoardDAO {
         String username="root";
         String password="12345";
         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");// 동적드라이버로딩
             conn=DriverManager.getConnection(url, username, password);
         }catch (Exception e){
             e.printStackTrace();
