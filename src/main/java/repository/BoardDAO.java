@@ -1,6 +1,10 @@
 package repository;
 
+import entity.Board;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 // JDBC Programming
 public class BoardDAO {
@@ -21,9 +25,10 @@ public class BoardDAO {
         return conn;
     }
     // 게시물 전체 가져오기 동작
-    public void findAll(){
+    public List<Board> findAll(){
         String SQL="select * from board order by num desc";
         conn=getConnect(); // 연결객체를 얻기
+        List<Board> bList=new ArrayList<>();
         try{
            ps=conn.prepareStatement(SQL);
            rs=ps.executeQuery();
@@ -34,10 +39,12 @@ public class BoardDAO {
                  Date date=rs.getDate("date");
                  int count=rs.getInt("count");
                  // 묶고(Board)->담고(List) -> 점심(오후)
-
+                 Board board=new Board(num, title, writer, date, count);
+                 bList.add(board);
            }
         }catch (Exception e){
             e.printStackTrace();
         }
+        return bList;
     }
 }
