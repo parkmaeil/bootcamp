@@ -9,3 +9,9 @@ create table board(
    date datetime default now(),
    count int default 0
 );
+insert into board(title, writer)
+values('스프링','관리자');
+insert into board(title, writer)
+values('MVC','박매일');
+
+select * from board;
