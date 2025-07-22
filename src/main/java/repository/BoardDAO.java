@@ -6,7 +6,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// JDBC Programming
+// JDBC Programming -> MyBatis Framework
+/*
+ 1. 생산성이 떨어진다.(시간이 오래걸린다)
+ 2. 유지보수가 어렵다.(Java+SQL)
+ */
 public class BoardDAO {
     private Connection conn;
     //private Statement st; // ? , ? , ?

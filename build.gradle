@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.mybatis:mybatis:3.5.6'
     implementation("mysql:mysql-connector-java:8.0.33")
     implementation("javax.servlet:jstl:1.2")
     compileOnly("javax.servlet:javax.servlet-api:4.0.1")
