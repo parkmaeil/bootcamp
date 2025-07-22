@@ -4,12 +4,6 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<%@page import="entity.*,java.util.*"%>
-
-<%
-   List<Member> mList=(List<Member>)request.getAttribute("mList");
-%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +19,9 @@ ${a}
 <c:if test="${a%2!=0}">
   홀수입니다.
 </c:if>
+<c:forEach var="i" begin="1" end="10" step="1">
+  <font size="${i}">야호!!</font><br/>
+</c:forEach>
 
 <table border="1">
   <tr>
@@ -33,14 +30,14 @@ ${a}
      <td>나이</td>
      <td>주소</td>
   </tr>
-  <% for(Member member: mList){  %>
+   <c:forEach var="member" items="${mList}">
    <tr>
-       <td><%=member.getNum()%></td>
-       <td><%=member.getName()%></td>
-       <td><%=member.getAge()%></td>
-       <td><%=member.getAddr()%></td>
+       <td>${member.num}</td>
+       <td>${member.name}</td>
+       <td>${member.age}</td>
+       <td>${member.addr}</td>
     </tr>
-   <% } %>
+   </c:forEach>
 </table>
 </body>
 </html>
