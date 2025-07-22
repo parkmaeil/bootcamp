@@ -2,6 +2,7 @@ package controller;
 import entity.Board;
 import entity.Member;
 import repository.BoardDAO;
+import repository.BoardDAOMyBatis;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,7 +20,8 @@ public class BoardController extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        BoardDAO dao=new BoardDAO();
+       // BoardDAO dao=new BoardDAO(); //JDBC
+        BoardDAOMyBatis dao=new BoardDAOMyBatis(); //MyBatis
         List<Board> bList=dao.findAll();
         // 객체바인딩
         req.setAttribute("bList", bList); // ${bList}

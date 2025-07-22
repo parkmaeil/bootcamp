@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-게시판리스트(DB 연동)
+게시판리스트(MyBatis DB 연동)
 <table border="1">
   <tr>
      <td>번호</td>

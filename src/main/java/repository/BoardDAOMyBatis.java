@@ -15,7 +15,6 @@ import java.util.List;
   2. Connection Pool(?)
  */
 public class BoardDAOMyBatis {
-
     private static SqlSessionFactory sqlSessionFactory;
     // 초기화 블럭
     static {
