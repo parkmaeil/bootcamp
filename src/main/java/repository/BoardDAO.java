@@ -20,5 +20,24 @@ public class BoardDAO {
         }
         return conn;
     }
-    // 
+    // 게시물 전체 가져오기 동작
+    public void findAll(){
+        String SQL="select * from board order by num desc";
+        conn=getConnect(); // 연결객체를 얻기
+        try{
+           ps=conn.prepareStatement(SQL);
+           rs=ps.executeQuery();
+           while (rs.next()){
+                 int num=rs.getInt("num");
+                 String title=rs.getString("title");
+                 String writer=rs.getString("writer");
+                 Date date=rs.getDate("date");
+                 int count=rs.getInt("count");
+                 // 묶고(Board)->담고(List) -> 점심(오후)
+
+           }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
