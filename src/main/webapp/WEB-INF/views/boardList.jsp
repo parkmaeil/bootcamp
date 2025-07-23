@@ -7,9 +7,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script>
        function goWriter(){
           //alert("버튼이 클릭됨"); // ajax()->JSON
           location.href="/b01/boardForm";
@@ -17,25 +22,39 @@
     </script>
 </head>
 <body>
-게시판리스트(MyBatis DB 연동)
-<table border="1">
-  <tr>
-     <td>번호</td>
-     <td>제목</td>
-     <td>작성자</td>
-     <td>작성일</td>
-     <td>조회수</td>
-  </tr>
-   <c:forEach var="board" items="${bList}">
-   <tr>
-       <td>${board.num}</td>
-       <td>${board.title}</td>
-       <td>${board.writer}</td>
-       <td>${board.date}</td>
-       <td>${board.count}</td>
-    </tr>
-   </c:forEach>
-</table>
-<button onClick="goWriter()">글쓰기</button>
+
+<div class="container mt-5">
+  <h2>MVC Framework 게시판</h2>
+  <div class="card">
+    <div class="card-header">리스트보기</div>
+    <div class="card-body">
+      <table class="table table-hover">
+          <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+             </tr>
+          </thead>
+          <tbody>
+            <c:forEach var="board" items="${bList}">
+              <tr>
+                  <td>${board.num}</td>
+                  <td>${board.title}</td>
+                  <td>${board.writer}</td>
+                  <td>${board.date}</td>
+                  <td>${board.count}</td>
+               </tr>
+              </c:forEach>
+          </tbody>
+        </table>
+        <button onClick="goWriter()" class="btn btn-primary">글쓰기</button>
+    </div>
+    <div class="card-footer">학번_이름</div>
+  </div>
+</div>
+
 </body>
 </html>
