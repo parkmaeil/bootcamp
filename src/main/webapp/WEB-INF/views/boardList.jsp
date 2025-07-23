@@ -9,6 +9,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+       function goWriter(){
+          //alert("버튼이 클릭됨"); // ajax()->JSON
+          location.href="/b01/boardForm";
+       }
+    </script>
 </head>
 <body>
 게시판리스트(MyBatis DB 연동)
@@ -30,5 +36,6 @@
     </tr>
    </c:forEach>
 </table>
+<button onClick="goWriter()">글쓰기</button>
 </body>
 </html>
