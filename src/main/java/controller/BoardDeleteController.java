@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/boardDelete")
+//@WebServlet("/boardDelete")
 public class BoardDeleteController extends HelloServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)

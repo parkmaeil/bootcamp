@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-
+// Servlet -> POJO(순수 자바 객체)
 //@WebServlet("/boardList") // web.xml(servlet-mapping)
-public class BoardListController extends HttpServlet {
-    @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp)
+public class BoardListController {
+
+    public String requestHandler(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
        // BoardDAO dao=new BoardDAO(); //JDBC
@@ -22,9 +22,7 @@ public class BoardListController extends HttpServlet {
         List<Board> bList=dao.findAll();
         // 객체바인딩
         req.setAttribute("bList", bList); // ${bList}
-        // forward(JSP) // boardList : View의 논리적인이름->/WEB-INF/views/boardList.jsp
-        // ViewResolver
-        RequestDispatcher rd=req.getRequestDispatcher(ViewResolver.makeView("boardList"));
-        rd.forward(req, resp);
+
+        return "boardList";
     }
 }

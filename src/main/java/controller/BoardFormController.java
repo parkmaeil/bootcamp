@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/boardForm")
+//@WebServlet("/boardForm")
 public class BoardFormController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
