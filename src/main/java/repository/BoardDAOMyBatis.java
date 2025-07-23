@@ -42,6 +42,13 @@ public class BoardDAOMyBatis {
         session.commit(); //SQL->완료
         session.close();
     }
+    // num을 받아서 삭제하는 메서드
+    public void deleteById(int num){
+        SqlSession session=sqlSessionFactory.openSession();
+        session.delete("deleteById", num);
+        session.commit(); //SQL->완료
+        session.close();
+    }
 }
 
 

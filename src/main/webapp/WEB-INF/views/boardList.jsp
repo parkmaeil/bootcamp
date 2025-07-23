@@ -19,6 +19,9 @@
           //alert("버튼이 클릭됨"); // ajax()->JSON
           location.href="/b01/boardForm";
        }
+       function goDel(num){
+          location.href="/b01/boardDelete?num="+num;
+       }
     </script>
 </head>
 <body>
@@ -35,6 +38,7 @@
                 <th>작성자</th>
                 <th>작성일</th>
                 <th>조회수</th>
+                <th>삭제</th>
              </tr>
           </thead>
           <tbody>
@@ -45,6 +49,7 @@
                   <td>${board.writer}</td>
                   <td><fmt:formatDate value="${board.date}" pattern="yyyy-MM-dd" /></td>
                   <td>${board.count}</td>
+                  <td><button class="btn btn-info btn-sm" onClick="goDel(${board.num})">삭제</button></td>
                </tr>
               </c:forEach>
           </tbody>

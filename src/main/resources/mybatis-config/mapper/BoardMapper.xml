@@ -10,4 +10,7 @@
      insert into board(title, writer)
      values(#{title},#{writer})
    </insert>
+   <delete id="deleteById">
+       delete from board where num=#{num}
+   </delete>
 </mapper>
