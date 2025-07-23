@@ -43,7 +43,7 @@
                   <td>${board.num}</td>
                   <td>${board.title}</td>
                   <td>${board.writer}</td>
-                  <td>${board.date}</td>
+                  <td><fmt:formatDate value="${board.date}" pattern="yyyy-MM-dd" /></td>
                   <td>${board.count}</td>
                </tr>
               </c:forEach>
