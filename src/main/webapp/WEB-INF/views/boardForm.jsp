@@ -22,21 +22,17 @@
   <div class="card">
     <div class="card-header">글쓰기</div>
     <div class="card-body">
-       <form action="/action_page.php">
+       <form method="post" action="/b01/boardWrite">
          <div class="form-group">
-           <label for="email">Email address:</label>
-           <input type="email" class="form-control" placeholder="Enter email" id="email">
+           <label for="title">제목(title)</label>
+           <input type="text" class="form-control" placeholder="Enter title" id="title" name="title">
          </div>
          <div class="form-group">
-           <label for="pwd">Password:</label>
-           <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+           <label for="writer">작성자(writer)</label>
+           <input type="text" class="form-control" placeholder="Enter writer" id="writer" name="writer">
          </div>
-         <div class="form-group form-check">
-           <label class="form-check-label">
-             <input class="form-check-input" type="checkbox"> Remember me
-           </label>
-         </div>
-         <button type="submit" class="btn btn-primary">Submit</button>
+         <button type="submit" class="btn btn-primary">글쓰기</button>
+         <button type="reset" class="btn btn-warning">취소</button>
        </form>
     </div>
     <div class="card-footer">학번_이름</div>
