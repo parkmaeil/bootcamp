@@ -44,6 +44,8 @@ public class DispatcherServlet extends HttpServlet {
              resp.sendRedirect(viewName);
          }else if(command.equals("/boardDelete.do")){
              BoardDeleteController controller=new BoardDeleteController();
+             String viewName=controller.requestHandler(req, resp);
+             resp.sendRedirect(viewName);
          }//end
     }
 }

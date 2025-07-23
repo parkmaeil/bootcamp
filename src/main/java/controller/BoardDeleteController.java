@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 //@WebServlet("/boardDelete")
-public class BoardDeleteController extends HelloServlet {
-    @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp)
+public class BoardDeleteController {
+
+    public String requestHandler(HttpServletRequest req, HttpServletResponse resp)
                                          throws ServletException, IOException {
         //?num=10
         int num = Integer.parseInt(req.getParameter("num")); // "10"->10
@@ -19,6 +19,7 @@ public class BoardDeleteController extends HelloServlet {
         dao.deleteById(num);
         // 삭제후에는 리스트보기
         // redirect 기숳
-        resp.sendRedirect("/b01/boardList");
+        //resp.sendRedirect("/b01/boardList");
+        return "/b01/boardList.do";
     }
 }
