@@ -1,7 +1,6 @@
 package frontcontroller;
 
-import controller.BoardListController;
-import controller.ViewResolver;
+import controller.*;
 import entity.Board;
 import repository.BoardDAOMyBatis;
 
@@ -27,7 +26,7 @@ public class DispatcherServlet extends HttpServlet {
          String ctx=req.getContextPath(); // /b01
          String command=reqURI.substring(ctx.length());
          System.out.println(command);
-         // 컨트롤러 분기 작업
+         // 컨트롤러 분기 작업(HandlerMapping)
          if(command.equals("/boardList.do")){
              BoardListController controller=new BoardListController(); //POJO
              String viewName=controller.requestHandler(req, resp);
@@ -35,11 +34,16 @@ public class DispatcherServlet extends HttpServlet {
              RequestDispatcher rd= req.getRequestDispatcher(ViewResolver.makeView(viewName));
              rd.forward(req, resp);
          }else if(command.equals("/boardForm.do")){
-             System.out.println("게시판 폼 처리");
+             BoardFormController controller=new BoardFormController();
+             String viewName=controller.requestHandler(req, resp);
+             RequestDispatcher rd= req.getRequestDispatcher(ViewResolver.makeView(viewName));
+             rd.forward(req, resp);
          }else if(command.equals("/boardWrite.do")){
-             System.out.println("게시판 글쓰기 처리");
+             BoardWriteController controller=new BoardWriteController();
+             String viewName=controller.requestHandler(req, resp);
+             resp.sendRedirect(viewName);
          }else if(command.equals("/boardDelete.do")){
-             System.out.println("게시판 삭제처리");
+             BoardDeleteController controller=new BoardDeleteController();
          }//end
     }
 }

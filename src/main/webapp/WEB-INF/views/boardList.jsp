@@ -17,10 +17,10 @@
    <script>
        function goWriter(){
           //alert("버튼이 클릭됨"); // ajax()->JSON
-          location.href="/b01/boardForm";
+          location.href="/b01/boardForm.do";
        }
        function goDel(num){
-          location.href="/b01/boardDelete?num="+num;
+          location.href="/b01/boardDelete.do?num="+num;
        }
     </script>
 </head>

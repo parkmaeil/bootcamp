@@ -10,12 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 //@WebServlet("/boardForm")
-public class BoardFormController extends HttpServlet {
-    @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp)
+public class BoardFormController {
+
+    public String requestHandler(HttpServletRequest req, HttpServletResponse resp)
                                throws ServletException, IOException {
           // 글쓰기 폼으로 forward
-          RequestDispatcher rd =req.getRequestDispatcher(ViewResolver.makeView("boardForm"));
-          rd.forward(req, resp);
+          //RequestDispatcher rd =req.getRequestDispatcher(ViewResolver.makeView("boardForm"));
+          //rd.forward(req, resp);
+        return "boardForm";
     }
 }

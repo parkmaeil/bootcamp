@@ -22,7 +22,7 @@
   <div class="card">
     <div class="card-header">글쓰기</div>
     <div class="card-body">
-       <form method="post" action="/b01/boardWrite">
+       <form method="post" action="/b01/boardWrite.do">
          <div class="form-group">
            <label for="title">제목(title)</label>
            <input type="text" class="form-control" placeholder="Enter title" id="title" name="title">
