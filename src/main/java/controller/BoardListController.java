@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/boardList") // web.xml(servlet-mapping)
+//@WebServlet("/boardList") // web.xml(servlet-mapping)
 public class BoardListController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
