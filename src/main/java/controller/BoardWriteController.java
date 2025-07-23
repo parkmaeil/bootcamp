@@ -24,5 +24,8 @@ public class BoardWriteController extends HttpServlet {
         // DAO
         BoardDAOMyBatis dao=new BoardDAOMyBatis();
         dao.save(board); // insert or update
+        // 글쓰기 후에는 어디로 가야되나? -> 리스트보기(/boardList)
+        // redirect 기술
+        resp.sendRedirect("/b01/boardList");
     }
 }

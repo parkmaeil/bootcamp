@@ -6,4 +6,8 @@
    <select id="findAll" resultType="entity.Board">
      select * from board order by num desc
    </select>
+   <insert id="save" parameterType="entity.Board">
+     insert into board(title, writer)
+     values(#{title},#{writer})
+   </insert>
 </mapper>

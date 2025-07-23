@@ -37,9 +37,11 @@ public class BoardDAOMyBatis {
     }
     // 게시판 데이터를 저정하는 메서드
     public void save(Board board){
-
+        SqlSession session=sqlSessionFactory.openSession();
+        session.insert("save", board);
+        session.commit(); //SQL->완료
+        session.close();
     }
-    
 }
 
 
