@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 //@WebServlet("/boardForm")
-public class BoardFormController {
+public class BoardFormController implements Controller {
 
     public String requestHandler(HttpServletRequest req, HttpServletResponse resp)
                                throws ServletException, IOException {

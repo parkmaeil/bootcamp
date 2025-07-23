@@ -26,26 +26,32 @@ public class DispatcherServlet extends HttpServlet {
          String ctx=req.getContextPath(); // /b01
          String command=reqURI.substring(ctx.length());
          System.out.println(command);
-         // 컨트롤러 분기 작업(HandlerMapping)
+         // 2.컨트롤러 분기 작업(HandlerMapping)
+         Controller controller=null;
+         String viewName=null;
          if(command.equals("/boardList.do")){
-             BoardListController controller=new BoardListController(); //POJO
-             String viewName=controller.requestHandler(req, resp);
-             // 포워딩
-             RequestDispatcher rd= req.getRequestDispatcher(ViewResolver.makeView(viewName));
-             rd.forward(req, resp);
+             controller=new BoardListController(); //POJO
+             viewName=controller.requestHandler(req, resp);
          }else if(command.equals("/boardForm.do")){
-             BoardFormController controller=new BoardFormController();
-             String viewName=controller.requestHandler(req, resp);
-             RequestDispatcher rd= req.getRequestDispatcher(ViewResolver.makeView(viewName));
-             rd.forward(req, resp);
+             controller=new BoardFormController();
+             viewName=controller.requestHandler(req, resp);
          }else if(command.equals("/boardWrite.do")){
-             BoardWriteController controller=new BoardWriteController();
-             String viewName=controller.requestHandler(req, resp);
-             resp.sendRedirect(viewName);
+             controller=new BoardWriteController();
+             viewName=controller.requestHandler(req, resp);
          }else if(command.equals("/boardDelete.do")){
-             BoardDeleteController controller=new BoardDeleteController();
-             String viewName=controller.requestHandler(req, resp);
-             resp.sendRedirect(viewName);
+             controller=new BoardDeleteController();
+             viewName=controller.requestHandler(req, resp);
          }//end
+        // 3.뷰 페이지 분기 작업(viewName)
+        // forward("boardList")
+        if(viewName!=null) {
+            if(!viewName.contains(":/")) {
+                RequestDispatcher rd = req.getRequestDispatcher(ViewResolver.makeView(viewName));
+                rd.forward(req, resp);
+            }else {
+                // redirect("redirect:/boardList.do")
+                resp.sendRedirect(viewName.split(":/")[1]);// boardList.do
+            }
+        }
     }
 }

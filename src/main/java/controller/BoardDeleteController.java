@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 //@WebServlet("/boardDelete")
-public class BoardDeleteController {
+public class BoardDeleteController implements Controller {
 
     public String requestHandler(HttpServletRequest req, HttpServletResponse resp)
                                          throws ServletException, IOException {
@@ -20,6 +20,6 @@ public class BoardDeleteController {
         // 삭제후에는 리스트보기
         // redirect 기숳
         //resp.sendRedirect("/b01/boardList");
-        return "/b01/boardList.do";
+        return "redirect:/boardList.do";
     }
 }

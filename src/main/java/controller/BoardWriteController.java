@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 //@WebServlet("/boardWrite")
-public class BoardWriteController {
+public class BoardWriteController implements Controller {
                             // title=XXX, writer=XXX
     public String requestHandler(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 클라이언트 폼에서 넘어온 파라메서를 받기
