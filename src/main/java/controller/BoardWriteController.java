@@ -1,0 +1,28 @@
+package controller;
+
+import entity.Board;
+import repository.BoardDAOMyBatis;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/boardWrite")
+public class BoardWriteController extends HttpServlet {
+    @Override                             // title=XXX, writer=XXX
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 클라이언트 폼에서 넘어온 파라메서를 받기
+        String title=req.getParameter("title");
+        String writer=req.getParameter("writer");
+        // 묶기(DTO : Board)
+        Board board=new Board(); // 파라메서수집
+        board.setTitle(title);
+        board.setWriter(writer);
+        // DAO
+        BoardDAOMyBatis dao=new BoardDAOMyBatis();
+        dao.save(board); // insert or update
+    }
+}

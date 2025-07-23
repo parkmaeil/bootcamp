@@ -35,6 +35,11 @@ public class BoardDAOMyBatis {
         session.close();// 반납(*)
         return bList;
     }
+    // 게시판 데이터를 저정하는 메서드
+    public void save(Board board){
+
+    }
+    
 }
 
 
