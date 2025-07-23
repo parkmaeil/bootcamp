@@ -15,6 +15,7 @@ public class BoardWriteController extends HttpServlet {
     @Override                             // title=XXX, writer=XXX
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 클라이언트 폼에서 넘어온 파라메서를 받기
+        req.setCharacterEncoding("utf-8");
         String title=req.getParameter("title");
         String writer=req.getParameter("writer");
         // 묶기(DTO : Board)

@@ -22,7 +22,6 @@
     </script>
 </head>
 <body>
-
 <div class="container mt-5">
   <h2>MVC Framework 게시판</h2>
   <div class="card">
