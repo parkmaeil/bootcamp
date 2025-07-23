@@ -28,6 +28,6 @@ public class BoardWriteController implements Controller {
         // 글쓰기 후에는 어디로 가야되나? -> 리스트보기(/boardList)
         // redirect 기술
         // resp.sendRedirect("/b01/boardList");
-        return "/b01/boardList.do";
+        return "redirect:/boardList.do";
     }
 }
