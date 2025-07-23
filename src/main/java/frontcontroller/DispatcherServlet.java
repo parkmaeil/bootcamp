@@ -20,17 +20,15 @@ public class DispatcherServlet extends HttpServlet {
          String ctx=req.getContextPath(); // /b01
          String command=reqURI.substring(ctx.length());
          System.out.println(command);
+         // 컨트롤러 분기 작업
          if(command.equals("/boardList")){
-
-
+             System.out.println("게시판 리스트처리");
          }else if(command.equals("/boardForm")){
-
-
+             System.out.println("게시판 폼 처리");
          }else if(command.equals("/boardWrite")){
-
-
+             System.out.println("게시판 글쓰기 처리");
          }else if(command.equals("/boardDelete")){
-             
-         }
+             System.out.println("게시판 삭제처리");
+         }//end
     }
 }
