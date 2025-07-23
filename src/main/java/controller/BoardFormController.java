@@ -15,7 +15,7 @@ public class BoardFormController extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp)
                                throws ServletException, IOException {
           // 글쓰기 폼으로 forward
-          RequestDispatcher rd =req.getRequestDispatcher("/WEB-INF/views/boardForm.jsp");
+          RequestDispatcher rd =req.getRequestDispatcher(ViewResolver.makeView("boardForm"));
           rd.forward(req, resp);
     }
 }
