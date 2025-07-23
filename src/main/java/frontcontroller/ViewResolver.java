@@ -1,4 +1,4 @@
-package controller;
+package frontcontroller;
 
 public class ViewResolver {
     private static final String VIEWS_PREFIX="/WEB-INF/views/";

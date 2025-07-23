@@ -13,6 +13,7 @@ public class HandlerMapping {
         mappings.put("/boardForm.do", new BoardFormController());
         mappings.put("/boardWrite.do", new BoardWriteController());
         mappings.put("/boardDelete.do", new BoardDeleteController());
+
     }
     public Controller getController(String key){
         return mappings.get(key);
